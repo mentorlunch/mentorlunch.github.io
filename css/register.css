@@ -100,8 +100,3 @@ input {
 #login fieldset input[type="submit"]:hover {
     background-color: #28ad63;
 }
-
-#linktoregister {
-    text-align: center;
-    text-decoration: none;
-}

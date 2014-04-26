@@ -19,11 +19,14 @@
 
 <div id="login">
 
-    <h2><span class="fontawesome-lock"></span>Sign In</h2>
+    <h2><span class="fontawesome-lock"></span>Register</h2>
 
     <form action="javascript:void(0);" method="POST">
 
         <fieldset>
+            <p><label for="password">Name</label></p>
+            <p><input type="password" id="name" value="password" onBlur="if(this.value=='')this.value='password'" onFocus="if(this.value=='password')this.value=''"></p> <!-- JS because of IE support; better: placeholder="password" -->
+
 
             <p><label for="email">E-mail address</label></p>
             <p><input type="email" id="email" value="mail@address.com" onBlur="if(this.value=='')this.value='mail@address.com'" onFocus="if(this.value=='mail@address.com')this.value=''"></p> <!-- JS because of IE support; better: placeholder="mail@address.com" -->
@@ -31,7 +34,11 @@
             <p><label for="password">Password</label></p>
             <p><input type="password" id="password" value="password" onBlur="if(this.value=='')this.value='password'" onFocus="if(this.value=='password')this.value=''"></p> <!-- JS because of IE support; better: placeholder="password" -->
 
-            <p><input type="submit" value="Sign In"></p> <a href="register.html"><p id="linktoregister">New? Register here</p></a>
+            <p><label for="password">Interests</label></p>
+            <p><input type="password" id="interests" value="password" onBlur="if(this.value=='')this.value='password'" onFocus="if(this.value=='password')this.value=''"></p> <!-- JS because of IE support; better: placeholder="password" -->
+
+
+            <p><input type="submit" value="Sign In"></p>
 
         </fieldset>
 
