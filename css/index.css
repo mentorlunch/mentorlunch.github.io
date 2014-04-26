@@ -1,0 +1,34 @@
+#logo {
+    font-size: 40px;
+    text-align: center;
+}
+
+#login {
+    width: 40%;
+    height: 30%;
+    background-color: yellow;
+    margin-left:auto;
+    margin-right:auto;
+    padding: 1%;
+}
+
+#login p {
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+}
+
+#register {
+    width: 40%;
+    height: 30%;
+    background-color: yellow;
+    margin-left:auto;
+    margin-right:auto;
+    padding: 1%;
+}
+
+#register p {
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+}
