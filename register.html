@@ -9,9 +9,36 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Varela+Round">
     <link rel="stylesheet" type="text/css" href="css/login.css">
 
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+  <script type="text/javascript">
+
+  function Sign_Up()
+  {
+    Parse.initialize("ZiN4tR79WjbE3r3FchxAmrVdXFvpUkV5mfXjR4eT", "Tbq1vnh0XMGNk6qWWntCacMdiGtOjvQR3Ls1pKo7");
+
+	var user = new Parse.User();
+	
+	user.set("username", document.getElementById("name").value);
+	user.set("password", document.getElementById("password").value);
+	user.set("email", document.getElementById("email").value);
+	user.set("interests", document.getElementById("interests").value);
+  
+	user.signUp(null, {
+	  success: function(user) {
+     		alert("successfully signed up");
+			windows.open("maps.html");
+	  },
+	  error: function(user, error) {
+    // Show the error message somewhere and let the user try again.
+    alert("Error: " + error.code + " " + error.message);}
+	});
+  }
+  </script>
 
 </head>
 
@@ -35,10 +62,10 @@
             <p><input type="password" id="password" value="password" onBlur="if(this.value=='')this.value='password'" onFocus="if(this.value=='password')this.value=''"></p> <!-- JS because of IE support; better: placeholder="password" -->
 
             <p><label for="password">Interests</label></p>
-            <p><input type="password" id="interests" value="password" onBlur="if(this.value=='')this.value='password'" onFocus="if(this.value=='password')this.value=''"></p> <!-- JS because of IE support; better: placeholder="password" -->
+            <p><input type="password" id="interests" value="password" onBlur="if(this.value=='')this.value='interest'" onFocus="if(this.value=='password')this.value=''"></p> <!-- JS because of IE support; better: placeholder="password" -->
 
 
-            <p><input type="submit" value="Sign In"></p>
+            <p><input type="submit" value="Sign In" Onclick="Sign_Up()"></p>
 
         </fieldset>
 

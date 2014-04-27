@@ -8,10 +8,31 @@
 
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Varela+Round">
     <link rel="stylesheet" type="text/css" href="css/login.css">
-
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+
+<script>
+
+function Logging_In()
+{
+	Parse.initialize("ZiN4tR79WjbE3r3FchxAmrVdXFvpUkV5mfXjR4eT", "Tbq1vnh0XMGNk6qWWntCacMdiGtOjvQR3Ls1pKo7");
+
+
+	var username=document.getElementById("username");
+	var pass=document.getElementById("password");
+	//user.set("username", email.value);
+	//user.set("password", pass.value);
+    Parse.User.logIn(username.value,pass.value,{
+		success: function(user){
+	alert("successfully logged.");
+window.open("map.html");//,'',"username='"+username.value+"',password='"+pass.value+"'"
+	}, error: function(user){alert("log in failed");}});
+}
+</script>
 
 </head>
 
@@ -25,13 +46,13 @@
 
         <fieldset>
 
-            <p><label for="email">E-mail address</label></p>
-            <p><input type="email" id="email" value="mail@address.com" onBlur="if(this.value=='')this.value='mail@address.com'" onFocus="if(this.value=='mail@address.com')this.value=''"></p> <!-- JS because of IE support; better: placeholder="mail@address.com" -->
+            <p><label for="password">User Name</label></p>
+            <p><input type="password" id="username" value="frank" onBlur="if(this.value=='')this.value='frank'" onFocus="if(this.value=='frank')this.value=''"></p> <!-- JS because of IE support; better: placeholder="mail@address.com" -->
 
             <p><label for="password">Password</label></p>
             <p><input type="password" id="password" value="password" onBlur="if(this.value=='')this.value='password'" onFocus="if(this.value=='password')this.value=''"></p> <!-- JS because of IE support; better: placeholder="password" -->
 
-            <p><input type="submit" value="Sign In"></p> <a href="register.html"><p id="linktoregister">New? Register here</p></a>
+            <p><input type="submit" value="Sign In" Onclick="Logging_In()"></p> <a href="register.html"><p id="linktoregister">New? Register here</p></a>
 
         </fieldset>
 
