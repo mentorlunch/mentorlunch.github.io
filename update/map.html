@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>restraunts</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body, #map-canvas {
+        height: 90%;
+        margin: 1%;
+        padding: 0px
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script>
+		//alert(username);
+
+			function show_going()
+			{
+				alert("10 person other are going in 30 min.");
+				window.open("lunch.html");			
+			}
+			function add_user()
+			{
+				alert("you and 10 person other are going in 30 min.");				
+				window.open("addlunch.html");
+			}
+       var map = null;
+            function showlocation() {
+               // One-shot position request.
+                navigator.geolocation.getCurrentPosition(callback);
+            }
+         
+	
+
+
+      function callback(position) {
+         
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+ 
+                var latLong = new google.maps.LatLng(lat, lon);
+         
+                var marker = new google.maps.Marker({
+                    position: latLong
+                });      
+                 
+                marker.setMap(map);
+        map.setZoom(18);
+        map.setCenter(marker.getPosition());
+	$.getJSON('https://api.foursquare.com/v2/venues/search?client_id=W5ATMTGL3Z3NODKEDKMTVJG3AXWY02B1K2FMSALMAYTDFEXH&client_secret=ANMXCKKKNGG25KT30PIVALYGE5Y1HGEYBLXFPM2DJCNM51VO&v=20130815&ll='+lat+','+lon, function(json) //more options can be set
+	{
+    	var stores=json.response.venues;
+		for(i in stores)
+		{
+			storelat=stores[i].location.lat;
+			storelng=stores[i].location.lng;
+			storedist=stores[i].location.distance;
+			//for box
+			checkinCounts=stores[i].stats.checkinsCounts;
+			userCount=stores[i].stats.usersCount;
+			tipCount=stores[i].stats.tipCount;
+			name=stores[i].name;
+			if(storedist>1000)
+			{continue;}
+
+			var addmarker = function() {
+			var myLatlng = new google.maps.LatLng(storelat,storelng);
+
+
+			//plot store on map
+			  var contentString = '<div id="content">'+
+				  '<div id="Information">'+
+				  '</div>'+
+				  '<h1 id="firstHeading" class="firstHeading">'+name+'</h1>'+
+				  '<div id="bodyContent">'+
+				  '<button type="button" onclick="show_going()">checking</button>'+//modify this button to put user's choise into data base
+				  '<button type="button" onclick="add_user()">going</button>'+//modify this button to put user's choise into data base
+				  '</div>'+
+				  '</div>';
+			  
+
+
+
+			  var marker = new google.maps.Marker({
+				  position: myLatlng,
+				  map: map,
+				  title: 'Uluru (Ayers Rock)'
+			  });
+   			  
+
+				marker.info = new google.maps.InfoWindow({
+				  content: contentString
+				});
+
+				//console.log(marker);
+
+				google.maps.event.addListener(marker, 'click', function() {
+				  marker.info.open(map, marker);
+				});
+			//marker.setIcon({url:"restraunts_file/newIcon.png"});
+			marker.setMap(map);
+			//alert(name);
+			};
+
+			addmarker();
+		}
+	});
+}
+       
+      google.maps.event.addDomListener(window, 'load', initMap);
+      function initMap() {
+        var mapOptions = {
+          center: new google.maps.LatLng(0, 0),
+          zoom: 1,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById("map-canvas"), 
+                                          mapOptions);
+       
+      }
+	showlocation();
+
+
+
+
+
+    </script>
+  </head>
+
+  <body>
+<div style="position:relative;left:40%">Restraunt</div>
+    <div id="map-canvas"></div>
+  </body>
+</html>
