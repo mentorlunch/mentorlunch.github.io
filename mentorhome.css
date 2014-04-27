@@ -1,0 +1,43 @@
+body {
+
+
+
+}
+
+#header {
+    text-align: center;
+
+
+    font-size: 30px;
+}
+
+.row {
+
+    margin-left: 30%;
+    margin-right: auto;
+background-color:#b0c4de;
+
+  -webkit-border-radius: 20px 20px 20px 20px;
+    -moz-border-radius: 20px 20px 20px 20px;
+    border-radius: 20px 20px 20px 20px;
+}
+
+img {
+    width: 7%;
+    height:7%;
+    float: left;
+}
+
+.description {
+    float: left;
+    margin-left: 5%;
+}
+
+.connect {
+    margin-left: 5%;
+    float: left;
+    width: 20%;
+    height: 5%;
+    background-color: yellow;
+}
+

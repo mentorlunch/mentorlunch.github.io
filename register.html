@@ -1,57 +1,78 @@
-<!doctype html>
-<html lang="en-US">
-<head>
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
 
-    <title>Login</title>
+    <title>Bite Bunch - Register</title>
 
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Varela+Round">
-    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
 
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
+    <!-- Custom styles for this template -->
+    <link href="css/mentorhome.css" rel="stylesheet">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-  <script type="text/javascript">
+    <script type="text/javascript">
 
-  function Sign_Up()
-  {
-    Parse.initialize("ZiN4tR79WjbE3r3FchxAmrVdXFvpUkV5mfXjR4eT", "Tbq1vnh0XMGNk6qWWntCacMdiGtOjvQR3Ls1pKo7");
+    function Sign_Up()
+    {
+      Parse.initialize("ZiN4tR79WjbE3r3FchxAmrVdXFvpUkV5mfXjR4eT", "Tbq1vnh0XMGNk6qWWntCacMdiGtOjvQR3Ls1pKo7");
 
-	var user = new Parse.User();
-	
-	user.set("username", document.getElementById("name").value);
-	user.set("password", document.getElementById("password").value);
-	user.set("email", document.getElementById("email").value);
-	user.set("interests", document.getElementById("interests").value);
-  
-	user.signUp(null, {
-	  success: function(user) {
-     		alert("successfully signed up");
-			windows.open("maps.html");
-	  },
-	  error: function(user, error) {
-    // Show the error message somewhere and let the user try again.
-    alert("Error: " + error.code + " " + error.message);}
-	});
-  }
-  </script>
+    var user = new Parse.User();
+    
+    user.set("username", document.getElementById("name").value);
+    user.set("password", document.getElementById("password").value);
+    user.set("email", document.getElementById("email").value);
+    //user.set("interests", document.getElementById("interests").value);
+    
+    user.signUp(null, {
+      success: function(user) {
+          alert("successfully signed up");
+		window.open("mentorhome.html");
+      },
+      error: function(user, error) {
+      // Show the error message somewhere and let the user try again.
+      alert("Error: " + error.code + " " + error.message);}
+    });
+    }
+    </script>
 
-</head>
+  </head>
 
-<body>
+  <body>
 
-<div id="login">
+    
+
+    <div class="container">
+      <div class="header">
+       
+        <ul class="nav nav-pills bitenav">
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="register.html">Register</a></li>  
+          <li><a href="login.html">Login</a></li>
+          
+            </ul>
+       
+      </div>
+
+      <div class="jumbotron">
+        <div id="login">
 
     <h2><span class="fontawesome-lock"></span>Register</h2>
 
     <form action="javascript:void(0);" method="POST">
 
         <fieldset>
-            <p><label for="password">Name</label></p>
+            <p><label for="password">Username</label></p>
             <p><input type="password" id="name" value="password" onBlur="if(this.value=='')this.value='password'" onFocus="if(this.value=='password')this.value=''"></p> <!-- JS because of IE support; better: placeholder="password" -->
 
 
@@ -61,8 +82,7 @@
             <p><label for="password">Password</label></p>
             <p><input type="password" id="password" value="password" onBlur="if(this.value=='')this.value='password'" onFocus="if(this.value=='password')this.value=''"></p> <!-- JS because of IE support; better: placeholder="password" -->
 
-            <p><label for="password">Interests</label></p>
-            <p><input type="password" id="interests" value="password" onBlur="if(this.value=='')this.value='interest'" onFocus="if(this.value=='password')this.value=''"></p> <!-- JS because of IE support; better: placeholder="password" -->
+
 
 
             <p><input type="submit" value="Sign In" Onclick="Sign_Up()"></p>
@@ -72,6 +92,7 @@
     </form>
 
 </div> <!-- end login -->
-
-</body>
+      </div>
+  </body>
 </html>
+  
