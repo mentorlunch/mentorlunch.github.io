@@ -13,8 +13,8 @@ body {
 }
 
 .row {
-    width: 90%;
-    margin-left: auto;
+
+    margin-left: 30%;
     margin-right: auto;
 }
 
@@ -36,3 +36,4 @@ img {
     height: 5%;
     background-color: yellow;
 }
+
